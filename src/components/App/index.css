@@ -1,38 +1,73 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+img {
+  max-width: 50px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header {
+  background-color: black;
+  color: white;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-direction: row;
+  justify-content: space-evenly;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+.menuCart {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+a {
+  text-decoration: none;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+a:hover {
+  text-decoration: underline;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+main {
+  padding: 80px 0px 0px 0px;
+}
+
+.productList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.productCard {
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  padding: 10px;
+}
+
+.normalPrice {
+  color: white;
+}
+
+.productDiscount {
+  color: red;
 }

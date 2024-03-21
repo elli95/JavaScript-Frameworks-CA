@@ -1,8 +1,14 @@
+// import { Link } from "react-router-dom";
+
 function Footer() {
   return (
-    <div>
-      <p>Page footer.</p>
-    </div>
+    <footer>
+      <nav>
+        <ul>
+          <li>{/* <Link to="/contact">Contact</Link> */}</li>
+        </ul>
+      </nav>
+    </footer>
   );
 }
 
