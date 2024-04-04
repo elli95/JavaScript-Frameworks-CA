@@ -18,7 +18,6 @@ function ProductSearch() {
   const inputValueChange = (input) => {
     const newValue = input.target.value;
     setInputValue(newValue);
-    // console.log(newValue);
   };
 
   const filteredProduct = products.filter((productData) => productData.title.toLowerCase().includes(inputValue.toLowerCase()));
@@ -30,7 +29,7 @@ function ProductSearch() {
       {inputValue && (
         <ul>
           {filteredProduct.map((product) => (
-            <Link to={`/products/${product.id}`}>
+            <Link key={product.id} to={`/products/${product.id}`}>
               <li key={product.id}>{product.title}</li>
             </Link>
           ))}
