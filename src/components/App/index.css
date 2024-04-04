@@ -116,3 +116,8 @@ main {
 .productDiscount {
   color: red;
 }
+
+.oldPrice {
+  text-decoration: line-through;
+  color: "gray";
+}

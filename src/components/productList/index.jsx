@@ -17,7 +17,7 @@ function ProductList() {
     return products.map((product) => <Product key={product.id} product={product} onAddToCartClick={onAddToCartClick} />);
   }
 
-  return <div>hello</div>;
+  return <div></div>;
 }
 
 export default ProductList;

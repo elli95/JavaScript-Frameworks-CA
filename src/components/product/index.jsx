@@ -7,6 +7,7 @@ function Product({ product: { id, title, description, price, image, tags, rating
 
   const lowestPrice = Math.min(price, discountedPrice);
   const isPriceHigher = price > discountedPrice;
+  const oldPrice = discountedPrice && price !== discountedPrice ? price : null;
 
   return (
     <div className="productCard">
@@ -15,6 +16,7 @@ function Product({ product: { id, title, description, price, image, tags, rating
       {image && <img src={image.url} alt={image.alt} />}
       <p>{tags}</p>
       <p>{rating}</p>
+      {oldPrice && <p className="oldPrice">${oldPrice}</p>}
       <p className={isPriceHigher ? "productDiscount" : "normalPrice"}>{lowestPrice}</p>
       <div className="card-btn">
         <Link to={`/products/${id}`}>

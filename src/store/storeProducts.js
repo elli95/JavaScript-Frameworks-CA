@@ -35,6 +35,32 @@ const useStoreProducts = create((set, get) => ({
       });
       return { ...state, cart: updatedShoppingCart };
     }),
+  addValueToCartQuantity: (id) =>
+    set((state) => {
+      const updatedCartQuantity = state.cart.map((product) => {
+        if (product.id === id) {
+          return { ...product, quantity: product.quantity + 1 };
+        }
+        return product;
+      });
+      return { ...state, cart: updatedCartQuantity };
+    }),
+  removeValueToCartQuantity: (id) =>
+    set((state) => {
+      const updatedCartQuantity = state.cart
+        .map((product) => {
+          if (product.id === id) {
+            const updatedQuantity = product.quantity - 1;
+            if (updatedQuantity <= 0) {
+              return null;
+            }
+            return { ...product, quantity: updatedQuantity };
+          }
+          return product;
+        })
+        .filter(Boolean);
+      return { ...state, cart: updatedCartQuantity };
+    }),
   getShoppingCartTotalValue: () =>
     get().cart.reduce((total, product) => {
       const currentPrice = product.quantity * product.price;
