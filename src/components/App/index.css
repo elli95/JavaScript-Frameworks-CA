@@ -1,6 +1,8 @@
 body {
   margin: 0;
   padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
 }
 
 /* img {
@@ -12,7 +14,7 @@ header {
   color: white;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
   position: fixed;
   top: 0;
   left: 0;
@@ -22,7 +24,7 @@ header {
 nav ul {
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  gap: 30px;
   list-style-type: none;
   text-decoration: none;
 }
@@ -31,6 +33,12 @@ nav ul {
   display: flex;
   flex-direction: row;
   gap: 5px;
+}
+
+.menuCart a {
+  align-self: center;
+  font-size: 25px;
+  padding-right: 5px;
 }
 
 a {
@@ -84,6 +92,8 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  max-width: 1699px;
+  margin-top: 10px;
 }
 
 .productCard {
@@ -96,6 +106,8 @@ main {
   align-items: center;
   margin: 10px;
   padding: 10px;
+  text-align: center;
+  justify-content: space-around;
 }
 
 .productCard img {
@@ -109,6 +121,10 @@ main {
   gap: 10px;
 }
 
+.starRating {
+  color: rgb(255, 149, 0);
+}
+
 .normalPrice {
   color: white;
 }
@@ -120,4 +136,120 @@ main {
 .oldPrice {
   text-decoration: line-through;
   color: "gray";
+}
+
+.homePage,
+.productPage,
+.shoppingCart,
+.checkoutSuccess,
+.contactForm,
+.contactForm form {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+}
+
+.shoppingCart a {
+  margin-top: 20px;
+}
+
+.shoppingCart img {
+  max-height: 50px;
+  width: 50px;
+  margin-right: 10px;
+}
+
+.cartProductContainer {
+  margin: 20px 0px;
+}
+
+.cartProduct {
+  display: flex;
+  padding: 5px;
+  border-bottom: 1px solid black;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.productAmount {
+  display: flex;
+  gap: 5px;
+  margin-left: 10px;
+  align-items: center;
+}
+
+.productAmount button {
+  height: 30px;
+  width: 30px;
+  border-radius: 5px;
+}
+
+.buttonSubtract {
+  background-color: red;
+}
+
+.buttonAdd {
+  background-color: green;
+}
+
+.cartTrashCan {
+  margin-left: 10px;
+}
+
+.productPage {
+  padding: 0px 10px;
+  text-align: center;
+}
+
+.productInfo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.productInfo img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  margin: 15px;
+}
+
+.productInfo p {
+  max-width: 350px;
+  padding: 10px;
+}
+
+.productTags,
+.productPriceContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.reviewContainer {
+  gap: 10px;
+  display: grid;
+  margin-top: 10px;
+}
+
+.reviewCard {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border: 3px solid black;
+  border-radius: 5px;
+  padding: 5px 20px;
+}
+
+.reviewRatingAuthor {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.contactForm div {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0px;
 }
