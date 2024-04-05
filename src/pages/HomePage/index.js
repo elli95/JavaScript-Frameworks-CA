@@ -19,7 +19,7 @@ import ProductList from "../../components/productList";
 
 function HomePage() {
   return (
-    <div>
+    <div className="homePage">
       {/* <Layout /> */}
       <ProductSearch />
       {/* <ProductCard /> */}

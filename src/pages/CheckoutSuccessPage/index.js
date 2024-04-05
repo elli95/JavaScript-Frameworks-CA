@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function CheckoutSuccessPage() {
   return (
-    <div>
+    <div className="checkoutSuccess">
       {/* <Layout /> */}
       <h1>Thank you for your purchase!</h1>
       <p>Your order has been successfully processed and is now being prepared for shipment.</p>
