@@ -1,5 +1,7 @@
 import useStoreProducts from "../../store/storeProducts";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMinus, faPlus, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
 function ShoppingCart() {
   const { cart, deleteItemFromCart, addValueToCartQuantity, removeValueToCartQuantity, getShoppingCartTotalValue, clearCart } = useStoreProducts();
@@ -21,18 +23,28 @@ function ShoppingCart() {
   console.log(cart);
 
   return (
-    <div>
+    <div className="shoppingCart">
       <h3>Cart:</h3>
       {!isCartEmpty && <button onClick={clearCart}>Clear cart</button>}
-      {cart.map(({ id, title, quantity, price }) => (
-        <div key={`cart-${id}`}>
-          <div>
-            {title}: {price}, <button onClick={() => handleRemoveValue(id)}>-</button> {quantity}
-            <button onClick={() => handleAddValue(id)}>+</button>
+      <div className="cartProductContainer">
+        {cart.map(({ id, image, title, quantity, price }) => (
+          <div key={`cart-${id}`} className="cartProduct">
+            {image && <img src={image.url} alt={image.alt} />} {title}: {price}
+            <div className="productAmount">
+              <button onClick={() => handleRemoveValue(id)} className="buttonSubtract">
+                <FontAwesomeIcon icon={faMinus} />
+              </button>
+              {quantity}
+              <button onClick={() => handleAddValue(id)} className="buttonAdd">
+                <FontAwesomeIcon icon={faPlus} />
+              </button>
+              <button onClick={() => handleDeleteItem(id)} className="cartTrashCan">
+                <FontAwesomeIcon icon={faTrashCan} />
+              </button>
+            </div>
           </div>
-          <button onClick={() => handleDeleteItem(id)}>Remove Item</button>
-        </div>
-      ))}
+        ))}
+      </div>
       {!isCartEmpty ? <div>Cart total: ${getShoppingCartTotalValue().toFixed(2)}</div> : <div>Your shopping cart is empty.</div>}
       {!isCartEmpty ? (
         <Link to={`/checkoutSuccess`}>
@@ -40,7 +52,7 @@ function ShoppingCart() {
         </Link>
       ) : (
         <Link to={`/`}>
-          <button>Home</button>
+          <button>Back to store</button>
         </Link>
       )}
     </div>

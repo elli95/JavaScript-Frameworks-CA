@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import useStoreProducts from "../../store/storeProducts";
 import { Link } from "react-router-dom";
 
@@ -6,7 +8,7 @@ function CartIcon() {
   return (
     <div className="menuCart">
       <Link to={`/checkout`}>
-        <p>Cart Icon</p>
+        <FontAwesomeIcon icon={faCartShopping} />
       </Link>
       <p>{getTotalNumberOfItemsInCart()}</p>
     </div>

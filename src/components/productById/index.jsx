@@ -1,6 +1,8 @@
 import { useParams } from "react-router-dom";
 import useStoreProducts from "../../store/storeProducts";
 import React, { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 function ProductById() {
   const { id } = useParams();
@@ -30,23 +32,38 @@ function ProductById() {
 
   console.log(product);
   return (
-    <div>
+    <div className="productPage">
       <h1>{product.title}</h1>
-      <p>{product.description}</p>
-      {product.image && <img src={product.image.url} alt={product.image.alt} />}
-      {product.tags.map((tag, index) => (
-        <p key={index}>{tag}</p>
-      ))}
-      <p>{product.rating}</p>
-      {oldPrice && <p className="oldPrice">${oldPrice}</p>}
-      <p className={isPriceHigher ? "productDiscount" : "normalPrice"}>{lowestPrice}</p>
-      <button onClick={handleButtonOnClick}>Add to cart</button>
-      <div>
+      <div className="productInfo">
+        {product.image && <img src={product.image.url} alt={product.image.alt} />}
+        <div>
+          <p>{product.description}</p>
+          <div className="productTags">
+            {product.tags.map((tag, index) => (
+              <p key={index}>{tag}</p>
+            ))}
+          </div>
+          <p className="starRating">
+            <FontAwesomeIcon icon={faStar} /> {product.rating}
+          </p>
+          <div className="productPriceContainer">
+            {oldPrice && <p className="oldPrice">${oldPrice}</p>}
+            <p className={isPriceHigher ? "productDiscount" : "normalPrice"}>{lowestPrice}</p>
+          </div>
+          <button onClick={handleButtonOnClick}>Add to cart</button>
+        </div>
+      </div>
+      <div className="reviewContainer">
+        <h2>Product reviews:</h2>
         {product.reviews.map((review) => (
-          <div key={review.id}>
+          <div key={review.id} className="reviewCard">
             <p>{review.description}</p>
-            <p>{review.rating}</p>
-            <p>{review.username}</p>
+            <div className="reviewRatingAuthor">
+              <p className="starRating">
+                <FontAwesomeIcon icon={faStar} /> {review.rating}
+              </p>
+              <p>{review.username}</p>
+            </div>
           </div>
         ))}
       </div>
