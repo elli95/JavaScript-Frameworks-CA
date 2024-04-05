@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import Layout from "../../components/PageLayout";
 
 function ContactPage() {
   const [formState, setFormState] = useState({
@@ -8,7 +7,23 @@ function ContactPage() {
     email: "",
     textBody: "",
   });
-  const [isValid, setIsValid] = useState(false);
+  // const [isValid, setIsValid] = useState(false);
+  const [errors, setErrors] = useState({
+    fullName: "",
+    subject: "",
+    email: "",
+    textBody: "",
+  });
+
+  const validateEmail = (email) => {
+    const emailRegex = /\S+@\S+\.\S+/;
+    return emailRegex.test(email);
+  };
+
+  const validateInputLength = (textValue) => {
+    const inputLength = textValue.length >= 3;
+    return inputLength;
+  };
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -18,31 +33,99 @@ function ContactPage() {
     }));
   };
 
+  const handleBlur = (event) => {
+    const { name, value } = event.target;
+    const newErrors = { ...errors };
+
+    switch (name) {
+      case "fullName":
+      case "subject":
+      case "textBody":
+        newErrors[name] = validateInputLength(value) ? "" : `${name} is required`;
+        break;
+      case "email":
+        newErrors.email = validateEmail(value) ? "" : "Invalid email address";
+        break;
+      default:
+        break;
+    }
+
+    setErrors(newErrors);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    const emailRegex = /\S+@\S+\.\S+/;
-    if (emailRegex.test(formState.email)) {
-      setIsValid(true);
-      console.log(formState);
+    const isValidForm = Object.values(errors).every((error) => !error);
+    if (isValidForm) {
+      console.log("Form submitted:", formState);
     } else {
-      setIsValid(false);
-      console.log("Invalid email, no action taken.");
+      console.log("This form has errors. Please correct them.");
     }
   };
 
   return (
-    <div>
-      {/* <Layout /> */}
+    <div className="contactForm">
+      <h1>Contact form:</h1>
       <form onSubmit={handleSubmit}>
-        <h2>Full name</h2>
-        <input name="fullName" value={formState.fullName} placeholder="Your full name" onChange={handleInputChange} minLength={3} required />
-        <h2>Subject</h2>
-        <input name="subject" value={formState.subject} placeholder="Subject theme" onChange={handleInputChange} minLength={3} required />
-        <h2>Email</h2>
-        <input name="email" value={formState.email} placeholder="Your Email" onChange={handleInputChange} required />
-        <p>{isValid ? "" : "Email is invalid."}</p>
-        <h2>Body</h2>
-        <input name="textBody" value={formState.textBody} placeholder="Textual content" onChange={handleInputChange} minLength={3} required />
+        <div>
+          <label htmlFor="fullName">Full name</label>
+          <input
+            type="text"
+            name="fullName"
+            value={formState.fullName}
+            placeholder="Your full name"
+            onChange={handleInputChange}
+            onBlur={handleBlur}
+            minLength={3}
+            aria-label="Full Name"
+            required
+          />
+          <span className="error">{errors.fullName}</span>
+        </div>
+        <div>
+          <label htmlFor="subject">Subject</label>
+          <input
+            type="text"
+            name="subject"
+            value={formState.subject}
+            placeholder="Subject theme"
+            onChange={handleInputChange}
+            onBlur={handleBlur}
+            minLength={3}
+            aria-label="Subject"
+            required
+          />
+          <span className="error">{errors.subject}</span>
+        </div>
+        <div>
+          <label htmlFor="email">Email</label>
+          <input
+            type="text"
+            name="email"
+            value={formState.email}
+            placeholder="Your Email"
+            onChange={handleInputChange}
+            onBlur={handleBlur}
+            aria-label="Email"
+            required
+          />
+          <span className="error">{errors.email}</span>
+        </div>
+        <div>
+          <label htmlFor="textBody">Body</label>
+          <input
+            type="text"
+            name="textBody"
+            value={formState.textBody}
+            placeholder="Textual content"
+            onChange={handleInputChange}
+            minLength={3}
+            onBlur={handleBlur}
+            aria-label="Body"
+            required
+          />
+          <span className="error">{errors.textBody}</span>
+        </div>
         <button type="submit">Submit</button>
       </form>
     </div>
@@ -50,72 +133,3 @@ function ContactPage() {
 }
 
 export default ContactPage;
-
-// import React, { useState } from "react";
-// import Layout from "../../components/PageLayout";
-
-// function ContactPage() {
-//   const [fullName, setFullName] = useState("");
-//   const [subject, setSubject] = useState("");
-//   const [email, setEmail] = useState("");
-//   const [textBody, setTextBody] = useState("");
-//   const [isValid, setIsValid] = useState(false);
-
-//   function onFullNameChange(event) {
-//     setFullName(event.target.value);
-//   }
-//   function onSubjectChange(event) {
-//     setSubject(event.target.value);
-//   }
-//   // function onEmailChange(event) {
-//   //   setEmail(event.target.value);
-//   // }
-//   function onTextBodyChange(event) {
-//     setTextBody(event.target.value);
-//   }
-
-//   function validateEmail(event) {
-//     const emailRegex = /\S+@\S+\.\S+/;
-//     const email = event.target.value;
-//     if (emailRegex.test(email)) {
-//       setIsValid(true);
-//       console.log("true");
-//     } else {
-//       setIsValid(false);
-//       console.log("false");
-//     }
-//     setEmail(email);
-//   }
-
-//   const handleSubmit = (event) => {
-//     event.preventDefault();
-//     if (isValid) {
-//       console.log("Full Name:", fullName);
-//       console.log("Subject:", subject);
-//       console.log("Email:", email);
-//       console.log("Text Body:", textBody);
-//     } else {
-//       console.log("Invalid email, no action taken.");
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <Layout />
-//       <form onSubmit={handleSubmit}>
-//         <h2>Full name</h2>
-//         <input value={fullName} placeholder="Your full name" onChange={onFullNameChange} minLength={3} required></input>
-//         <h2>Subject</h2>
-//         <input value={subject} placeholder="Subject theme" onChange={onSubjectChange} minLength={3} required></input>
-//         <h2>Email</h2>
-//         <input value={email} placeholder="Your Email" onChange={validateEmail} required></input>
-//         {isValid ? <p>Email is valid!</p> : <p>Email is invalid.</p>}
-//         <h2>Body</h2>
-//         <textarea value={textBody} placeholder="Textual content" onChange={onTextBodyChange} minLength={3} required></textarea>
-//         <button type="submit">Submit</button>
-//       </form>
-//     </div>
-//   );
-// }
-
-// export default ContactPage;
