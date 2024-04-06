@@ -38,15 +38,15 @@ function ShoppingCart() {
                 <div>{price}</div>
               </div>
               <div className="productAmount">
-                <button onClick={() => handleRemoveValue(id)} className="buttonSubtract">
-                  <FontAwesomeIcon icon={faMinus} aria-label="-" />
+                <button onClick={() => handleRemoveValue(id)} className="buttonSubtract" aria-label="-">
+                  <FontAwesomeIcon icon={faMinus} />
                 </button>
                 {quantity}
-                <button onClick={() => handleAddValue(id)} className="buttonAdd">
-                  <FontAwesomeIcon icon={faPlus} aria-label="+" />
+                <button onClick={() => handleAddValue(id)} className="buttonAdd" aria-label="+">
+                  <FontAwesomeIcon icon={faPlus} />
                 </button>
-                <button onClick={() => handleDeleteItem(id)} className="cartTrashCan">
-                  <FontAwesomeIcon icon={faTrashCan} aria-label="Trash can" />
+                <button onClick={() => handleDeleteItem(id)} className="cartTrashCan" aria-label="Trash can">
+                  <FontAwesomeIcon icon={faTrashCan} />
                 </button>
               </div>
             </div>

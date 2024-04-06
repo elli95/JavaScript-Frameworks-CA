@@ -18,8 +18,8 @@ function Product({ product: { id, title, price, image, rating, discountedPrice }
       <div className="imgBox">{image && <img src={image.url} alt={image.alt} />}</div>
       <div className="productInfoBox">
         <h2>{title}</h2>
-        <p className="starRating">
-          <FontAwesomeIcon icon={faStar} aria-label="Star" /> {rating}
+        <p className="starRating" aria-label="Star rating">
+          <FontAwesomeIcon icon={faStar} /> {rating}
         </p>
         <div className="productPriceContainer">
           {oldPrice && (
