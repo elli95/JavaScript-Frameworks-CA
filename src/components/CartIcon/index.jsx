@@ -7,7 +7,7 @@ function CartIcon() {
   const { getTotalNumberOfItemsInCart } = useStoreProducts();
   return (
     <div className="menuCart">
-      <Link to={`/checkout`} aria-label="Shooing Cart">
+      <Link to={`/checkout`} aria-label="Shopping Cart">
         <FontAwesomeIcon icon={faCartShopping} />
       </Link>
       <p>{getTotalNumberOfItemsInCart()}</p>
