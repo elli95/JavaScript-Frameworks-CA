@@ -47,7 +47,7 @@ function ProductById() {
             ))}
           </div>
           <p className="starRating">
-            <FontAwesomeIcon icon={faStar} /> {product.rating}
+            <FontAwesomeIcon icon={faStar} aria-label="Star" /> {product.rating}
           </p>
           <div className="productPriceContainer">
             {oldPrice && (
@@ -69,7 +69,7 @@ function ProductById() {
               <p>{review.description}</p>
               <div className="reviewRatingAuthor">
                 <p className="starRating">
-                  <FontAwesomeIcon icon={faStar} /> {review.rating}
+                  <FontAwesomeIcon icon={faStar} aria-label="Star" /> {review.rating}
                 </p>
                 <p>{review.username}</p>
               </div>

@@ -19,7 +19,7 @@ function Product({ product: { id, title, price, image, rating, discountedPrice }
       <div className="productInfoBox">
         <h2>{title}</h2>
         <p className="starRating">
-          <FontAwesomeIcon icon={faStar} /> {rating}
+          <FontAwesomeIcon icon={faStar} aria-label="Star" /> {rating}
         </p>
         <div className="productPriceContainer">
           {oldPrice && (

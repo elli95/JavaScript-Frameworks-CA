@@ -39,14 +39,14 @@ function ShoppingCart() {
               </div>
               <div className="productAmount">
                 <button onClick={() => handleRemoveValue(id)} className="buttonSubtract">
-                  <FontAwesomeIcon icon={faMinus} />
+                  <FontAwesomeIcon icon={faMinus} aria-label="-" />
                 </button>
                 {quantity}
                 <button onClick={() => handleAddValue(id)} className="buttonAdd">
-                  <FontAwesomeIcon icon={faPlus} />
+                  <FontAwesomeIcon icon={faPlus} aria-label="+" />
                 </button>
                 <button onClick={() => handleDeleteItem(id)} className="cartTrashCan">
-                  <FontAwesomeIcon icon={faTrashCan} />
+                  <FontAwesomeIcon icon={faTrashCan} aria-label="Trash can" />
                 </button>
               </div>
             </div>
