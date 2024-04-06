@@ -8,9 +8,6 @@ function Nav() {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/checkout">Checkout</Link>
-        </li>
-        <li>
           <Link to="/contact">Contact</Link>
         </li>
       </ul>

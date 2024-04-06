@@ -7,7 +7,7 @@ function ContactPage() {
     email: "",
     textBody: "",
   });
-  // const [isValid, setIsValid] = useState(false);
+
   const [errors, setErrors] = useState({
     fullName: "",
     subject: "",

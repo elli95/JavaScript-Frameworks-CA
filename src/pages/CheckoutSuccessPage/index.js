@@ -1,11 +1,8 @@
-// import Layout from "../../components/PageLayout";
 import { Link } from "react-router-dom";
-// import FinalShoppingCart from "../../components/finalShoppingCart";
 
 function CheckoutSuccessPage() {
   return (
     <div className="checkoutSuccess">
-      {/* <Layout /> */}
       <h1>Thank you for your purchase!</h1>
       <p>Your order has been successfully processed and is now being prepared for shipment.</p>
       <p>We’re excited to get your items to you. </p>
