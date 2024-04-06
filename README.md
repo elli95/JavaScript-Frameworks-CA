@@ -101,8 +101,8 @@ Elise Marie Hogsnes - [Linkedin.com](https://www.linkedin.com/in/elise-marie-hog
 
 Icons were sourced from [Font Awesome](https://fontawesome.com).
 
-Information and inspiration with the creation of the codes came from Noroff's curriculum.
+Information and inspiration for the creation of this project came from Noroff's curriculum.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-[project-screenshot]: images/readme-img-semester-project-2.webp
+[project-screenshot]: images/JavaScript-Frameworks-CA.webp
