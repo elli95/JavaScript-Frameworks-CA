@@ -130,6 +130,21 @@ main {
   margin-right: 10px;
 }
 
+.search-container input,
+.search-container a,
+.normalPrice,
+.productDiscount,
+.shoppingCart div,
+.checkoutSuccessContainer,
+.productInfo button,
+.productInfo p,
+.reviewCard p,
+.contactFormContainer input,
+.contactFormContainer textarea,
+.contactFormContainer span {
+  font-size: 1.2rem;
+}
+
 /* Home Page */
 .search-container {
   display: flex;
@@ -145,7 +160,6 @@ main {
   align-self: center;
   background-color: black;
   color: white;
-  font-size: 1.2rem;
 }
 
 .search-container a {
@@ -156,7 +170,6 @@ main {
   background-color: black;
   border: 1px solid white;
   padding: 5px;
-  font-size: 1.2rem;
   overflow-wrap: anywhere;
 }
 
@@ -230,17 +243,15 @@ main {
 
 .normalPrice {
   color: white;
-  font-size: 1.2rem;
 }
 
-.productPercentageDiscount {
+.productPercentageDiscount,
+.productDiscount {
   color: red;
 }
 
 .productDiscount {
-  color: red;
   text-decoration: line-through;
-  font-size: 1.2rem;
 }
 
 /* Cart Page */
@@ -308,10 +319,6 @@ main {
   border-radius: 5px;
 }
 
-.shoppingCart div {
-  font-size: 1.2rem;
-}
-
 /* Product Page */
 .productPage {
   display: flex;
@@ -372,7 +379,6 @@ main {
   background-color: black;
   border: 3px solid white;
   border-radius: 7px;
-  font-size: 1.2rem;
   margin-left: 10px;
 }
 
@@ -424,14 +430,6 @@ main {
   font-size: 1.3rem;
 }
 
-.productInfo p,
-.reviewCard p,
-.contactFormContainer input,
-.contactFormContainer textarea,
-.contactFormContainer span {
-  font-size: 1.2rem;
-}
-
 .contactFormContainer h1 {
   text-align: center;
 }
@@ -448,7 +446,6 @@ main {
   padding: 50px 20px;
   border-radius: 10px;
   margin: 10px;
-  font-size: 1.2rem;
   text-align: center;
 }
 
