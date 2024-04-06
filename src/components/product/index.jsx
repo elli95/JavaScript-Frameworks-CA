@@ -8,8 +8,10 @@ function Product({ product: { id, title, price, image, rating, discountedPrice }
   }
 
   const lowestPrice = Math.min(price, discountedPrice);
-  // const isPriceHigher = price > discountedPrice;
   const oldPrice = discountedPrice && price !== discountedPrice ? price : null;
+
+  const discountAmount = price - discountedPrice;
+  const percentageDiscount = Math.round((discountAmount / price) * 100);
 
   return (
     <div className="productCard">
@@ -20,7 +22,12 @@ function Product({ product: { id, title, price, image, rating, discountedPrice }
           <FontAwesomeIcon icon={faStar} /> {rating}
         </p>
         <div className="productPriceContainer">
-          {oldPrice && <p className="productDiscount">${oldPrice}</p>}
+          {oldPrice && (
+            <div className="discountContainer">
+              <p className="productPercentageDiscount">{percentageDiscount}%</p>
+              <p className="productDiscount">${oldPrice}</p>
+            </div>
+          )}
           <p className="normalPrice">{lowestPrice}</p>
         </div>
         <div className="card-btn">

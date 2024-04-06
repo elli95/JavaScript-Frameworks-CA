@@ -21,7 +21,6 @@ function ProductSearch() {
   };
 
   const filteredProduct = products.filter((productData) => productData.title.toLowerCase().includes(inputValue.toLowerCase()));
-  console.log("productFilter", filteredProduct);
 
   return (
     <div className="search-container">

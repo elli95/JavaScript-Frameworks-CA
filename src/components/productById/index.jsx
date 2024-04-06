@@ -29,6 +29,9 @@ function ProductById() {
   const lowestPrice = Math.min(product.price, product.discountedPrice);
   const oldPrice = product.discountedPrice && product.price !== product.discountedPrice ? product.price : null;
 
+  const discountAmount = product.price - product.discountedPrice;
+  const percentageDiscount = Math.round((discountAmount / product.price) * 100);
+
   const isReviewEmpty = product.reviews.length === 0;
 
   return (
@@ -47,7 +50,12 @@ function ProductById() {
             <FontAwesomeIcon icon={faStar} /> {product.rating}
           </p>
           <div className="productPriceContainer">
-            {oldPrice && <p className="productDiscount">${oldPrice}</p>}
+            {oldPrice && (
+              <div className="discountContainer">
+                <p className="productPercentageDiscount">{percentageDiscount}%</p>
+                <p className="productDiscount">${oldPrice}</p>
+              </div>
+            )}
             <p className="normalPrice">{lowestPrice}</p>
           </div>
           <button onClick={handleButtonOnClick}>Add to cart</button>

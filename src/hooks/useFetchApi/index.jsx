@@ -14,7 +14,6 @@ function useFetchApi(url) {
         const response = await fetch(url);
         const json = await response.json();
 
-        console.log(json);
         setProduct(json.data);
       } catch (error) {
         console.log(error);

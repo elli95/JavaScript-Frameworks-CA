@@ -20,8 +20,6 @@ function ShoppingCart() {
 
   const isCartEmpty = cart.length === 0;
 
-  console.log(cart);
-
   return (
     <div className="shoppingCart">
       <h1>Cart:</h1>
