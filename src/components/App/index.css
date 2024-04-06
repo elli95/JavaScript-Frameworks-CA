@@ -233,6 +233,10 @@ main {
   font-size: 1.2rem;
 }
 
+.productPercentageDiscount {
+  color: red;
+}
+
 .productDiscount {
   color: red;
   text-decoration: line-through;
@@ -342,6 +346,12 @@ main {
   padding: 10px;
 }
 
+.discountContainer p {
+  padding: 0px;
+  margin: 5px;
+  text-align: start;
+}
+
 .productTags {
   text-transform: capitalize;
 }
@@ -350,8 +360,9 @@ main {
 .productPriceContainer {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 45px;
   justify-content: center;
+  align-items: last baseline;
 }
 
 .productInfo button {
