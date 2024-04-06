@@ -24,35 +24,47 @@ function ShoppingCart() {
 
   return (
     <div className="shoppingCart">
-      <h3>Cart:</h3>
-      {!isCartEmpty && <button onClick={clearCart}>Clear cart</button>}
-      <div className="cartProductContainer">
-        {cart.map(({ id, image, title, quantity, price }) => (
-          <div key={`cart-${id}`} className="cartProduct">
-            {image && <img src={image.url} alt={image.alt} />} {title}: {price}
-            <div className="productAmount">
-              <button onClick={() => handleRemoveValue(id)} className="buttonSubtract">
-                <FontAwesomeIcon icon={faMinus} />
-              </button>
-              {quantity}
-              <button onClick={() => handleAddValue(id)} className="buttonAdd">
-                <FontAwesomeIcon icon={faPlus} />
-              </button>
-              <button onClick={() => handleDeleteItem(id)} className="cartTrashCan">
-                <FontAwesomeIcon icon={faTrashCan} />
-              </button>
+      <h1>Cart:</h1>
+      {!isCartEmpty && (
+        <button className="clearCartBtn" onClick={clearCart}>
+          Clear cart
+        </button>
+      )}
+      {!isCartEmpty && (
+        <div className="cartProductContainer">
+          {cart.map(({ id, image, title, quantity, price }) => (
+            <div key={`cart-${id}`} className="cartProduct">
+              <div>{image && <img src={image.url} alt={image.alt} />}</div>
+              <div className="cartProductInfo">
+                <div>{title}:</div>
+                <div>{price}</div>
+              </div>
+              <div className="productAmount">
+                <button onClick={() => handleRemoveValue(id)} className="buttonSubtract">
+                  <FontAwesomeIcon icon={faMinus} />
+                </button>
+                {quantity}
+                <button onClick={() => handleAddValue(id)} className="buttonAdd">
+                  <FontAwesomeIcon icon={faPlus} />
+                </button>
+                <button onClick={() => handleDeleteItem(id)} className="cartTrashCan">
+                  <FontAwesomeIcon icon={faTrashCan} />
+                </button>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
       {!isCartEmpty ? <div>Cart total: ${getShoppingCartTotalValue().toFixed(2)}</div> : <div>Your shopping cart is empty.</div>}
       {!isCartEmpty ? (
         <Link to={`/checkoutSuccess`}>
-          <button onClick={clearCart}>Checkout</button>
+          <button className="cartCheckoutBtn" onClick={clearCart}>
+            Checkout
+          </button>
         </Link>
       ) : (
         <Link to={`/`}>
-          <button>Back to store</button>
+          <button className="cartBackHomeBtn">Back to store</button>
         </Link>
       )}
     </div>

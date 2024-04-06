@@ -30,7 +30,10 @@ function ProductSearch() {
         <ul>
           {filteredProduct.map((product) => (
             <Link key={product.id} to={`/products/${product.id}`}>
-              <li key={product.id}>{product.title}</li>
+              <li key={product.id}>
+                <div>{product.image && <img src={product.image.url} alt={product.image.alt} />}</div>
+                {product.title}
+              </li>
             </Link>
           ))}
         </ul>

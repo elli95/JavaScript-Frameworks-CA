@@ -27,12 +27,12 @@ function ProductById() {
   }
 
   const lowestPrice = Math.min(product.price, product.discountedPrice);
-  const isPriceHigher = product.price > product.discountedPrice;
   const oldPrice = product.discountedPrice && product.price !== product.discountedPrice ? product.price : null;
 
-  console.log(product);
+  const isReviewEmpty = product.reviews.length === 0;
+
   return (
-    <div className="productPage">
+    <div className="productPageContainer">
       <h1>{product.title}</h1>
       <div className="productInfo">
         {product.image && <img src={product.image.url} alt={product.image.alt} />}
@@ -47,26 +47,28 @@ function ProductById() {
             <FontAwesomeIcon icon={faStar} /> {product.rating}
           </p>
           <div className="productPriceContainer">
-            {oldPrice && <p className="oldPrice">${oldPrice}</p>}
-            <p className={isPriceHigher ? "productDiscount" : "normalPrice"}>{lowestPrice}</p>
+            {oldPrice && <p className="productDiscount">${oldPrice}</p>}
+            <p className="normalPrice">{lowestPrice}</p>
           </div>
           <button onClick={handleButtonOnClick}>Add to cart</button>
         </div>
       </div>
-      <div className="reviewContainer">
-        <h2>Product reviews:</h2>
-        {product.reviews.map((review) => (
-          <div key={review.id} className="reviewCard">
-            <p>{review.description}</p>
-            <div className="reviewRatingAuthor">
-              <p className="starRating">
-                <FontAwesomeIcon icon={faStar} /> {review.rating}
-              </p>
-              <p>{review.username}</p>
+      {!isReviewEmpty && (
+        <div className="reviewContainer">
+          <h2>Product reviews:</h2>
+          {product.reviews.map((review) => (
+            <div key={review.id} className="reviewCard">
+              <p>{review.description}</p>
+              <div className="reviewRatingAuthor">
+                <p className="starRating">
+                  <FontAwesomeIcon icon={faStar} /> {review.rating}
+                </p>
+                <p>{review.username}</p>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

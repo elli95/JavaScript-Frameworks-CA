@@ -2,7 +2,7 @@ import ProductById from "../../components/productById";
 
 function ProductPage() {
   return (
-    <div>
+    <div className="productPage">
       <ProductById />
     </div>
   );

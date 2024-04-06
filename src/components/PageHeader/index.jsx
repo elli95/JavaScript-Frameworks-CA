@@ -1,10 +1,14 @@
 import CartIcon from "../CartIcon";
 import Nav from "../Nav";
+
 function Header() {
   return (
     <header>
-      <Nav />
-      <CartIcon />
+      <h2>E-Com</h2>
+      <div>
+        <Nav />
+        <CartIcon />
+      </div>
     </header>
   );
 }

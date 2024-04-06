@@ -41,10 +41,10 @@ function ContactPage() {
       case "fullName":
       case "subject":
       case "textBody":
-        newErrors[name] = validateInputLength(value) ? "" : `${name} is required`;
+        newErrors[name] = validateInputLength(value) ? "" : `You must enter at least 3 characters`;
         break;
       case "email":
-        newErrors.email = validateEmail(value) ? "" : "Invalid email address";
+        newErrors.email = validateEmail(value) ? "" : "Please enter a valid email";
         break;
       default:
         break;
@@ -65,69 +65,71 @@ function ContactPage() {
 
   return (
     <div className="contactForm">
-      <h1>Contact form:</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="fullName">Full name</label>
-          <input
-            type="text"
-            name="fullName"
-            value={formState.fullName}
-            placeholder="Your full name"
-            onChange={handleInputChange}
-            onBlur={handleBlur}
-            minLength={3}
-            aria-label="Full Name"
-            required
-          />
-          <span className="error">{errors.fullName}</span>
-        </div>
-        <div>
-          <label htmlFor="subject">Subject</label>
-          <input
-            type="text"
-            name="subject"
-            value={formState.subject}
-            placeholder="Subject theme"
-            onChange={handleInputChange}
-            onBlur={handleBlur}
-            minLength={3}
-            aria-label="Subject"
-            required
-          />
-          <span className="error">{errors.subject}</span>
-        </div>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input
-            type="text"
-            name="email"
-            value={formState.email}
-            placeholder="Your Email"
-            onChange={handleInputChange}
-            onBlur={handleBlur}
-            aria-label="Email"
-            required
-          />
-          <span className="error">{errors.email}</span>
-        </div>
-        <div>
-          <label htmlFor="textBody">Body</label>
-          <input
-            type="text"
-            name="textBody"
-            value={formState.textBody}
-            placeholder="Textual content"
-            onChange={handleInputChange}
-            minLength={3}
-            onBlur={handleBlur}
-            aria-label="Body"
-            required
-          />
-          <span className="error">{errors.textBody}</span>
-        </div>
-        <button type="submit">Submit</button>
-      </form>
+      <div className="contactFormContainer">
+        <h1>Contact form:</h1>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label htmlFor="fullName">Full name</label>
+            <input
+              type="text"
+              name="fullName"
+              value={formState.fullName}
+              placeholder="Your full name"
+              onChange={handleInputChange}
+              onBlur={handleBlur}
+              minLength={3}
+              aria-label="Full Name"
+              required
+            />
+            <span className="error">{errors.fullName}</span>
+          </div>
+          <div>
+            <label htmlFor="subject">Subject</label>
+            <input
+              type="text"
+              name="subject"
+              value={formState.subject}
+              placeholder="Subject theme"
+              onChange={handleInputChange}
+              onBlur={handleBlur}
+              minLength={3}
+              aria-label="Subject"
+              required
+            />
+            <span className="error">{errors.subject}</span>
+          </div>
+          <div>
+            <label htmlFor="email">Email</label>
+            <input
+              type="text"
+              name="email"
+              value={formState.email}
+              placeholder="Your Email"
+              onChange={handleInputChange}
+              onBlur={handleBlur}
+              aria-label="Email"
+              required
+            />
+            <span className="error">{errors.email}</span>
+          </div>
+          <div>
+            <label htmlFor="textBody">Body</label>
+            <textarea
+              type="text"
+              name="textBody"
+              value={formState.textBody}
+              placeholder="Text content"
+              onChange={handleInputChange}
+              minLength={3}
+              onBlur={handleBlur}
+              aria-label="Body"
+              required
+            />
+            <span className="error">{errors.textBody}</span>
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     </div>
   );
 }

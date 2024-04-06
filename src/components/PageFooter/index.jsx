@@ -1,15 +1,9 @@
-import { Link } from "react-router-dom";
+import Nav from "../Nav";
 
 function Footer() {
   return (
     <footer>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/contact">Contact</Link>
-          </li>
-        </ul>
-      </nav>
+      <Nav />
     </footer>
   );
 }
